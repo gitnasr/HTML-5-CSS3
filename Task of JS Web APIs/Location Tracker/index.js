@@ -33,13 +33,12 @@ function updateLocation(position) {
 	).toLocaleString()}`;
 }
 
-function getLocation() {
+function startLocation() {
 	if (LocationID) {
 		return;
 	}
 	LocationID = navigator.geolocation.watchPosition(updateLocation, showError, {
 		enableHighAccuracy: true,
-		
 	});
 }
 
@@ -56,4 +55,4 @@ function stopLocation() {
 
 document.getElementById("stop").addEventListener("click", stopLocation);
 
-document.getElementById("start").addEventListener("click", getLocation);
+document.getElementById("start").addEventListener("click", startLocation);
