@@ -2,7 +2,6 @@ const video = document.getElementById("video-player");
 
 const playButton = document.getElementById("play");
 const stopButton = document.getElementById("stop");
-const progress = document.getElementById("seek-bar");
 
 const toEndBtn = document.getElementById("toEnd");
 const toStartBtn = document.getElementById("toStart");
@@ -35,14 +34,19 @@ function toStart() {
 
 playButton.addEventListener("click", playVideo);
 stopButton.addEventListener("click", stopVideo);
-progress.addEventListener("change", () => {
-	video.currentTime = progress.value;
+SeekBar.addEventListener("change", () => {
+	video.currentTime = SeekBar.value;
 });
 
 toEndBtn.addEventListener("click", toEnd);
 toStartBtn.addEventListener("click", toStart);
 seek5Btn.addEventListener("click", seek5);
 seekminus5Btn.addEventListener("click", seekminus5);
-video.addEventListener("timeupdate", () => {
+
+
+
+video.addEventListener("timeupdate", (e) => {
+	
+	
 	SeekBar.value = video.currentTime;
 });
